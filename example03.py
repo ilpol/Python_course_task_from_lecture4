@@ -32,7 +32,7 @@ def _from_rgb(rgb):
 
 def random_color():
     Txt = Label(root, text="This is a label", bg=_from_rgb((randint(0, 255), randint(0, 255), randint(0, 255))))
-    Txt.grid(row=1, column=1, columnspan=100, sticky=E+W+N+S)
+    Txt.place( x = 80,y = 55)
 
 
 
@@ -40,18 +40,18 @@ def dump():
     #print("DUMP:",args)
     Butt2 = Button(root, text="New But",command = random_color)
     #Butt2.bind('<Button-2>', dump)
-    Butt2.grid(row=1, column=0, sticky=E+W+S+N)
+    Butt2.place( x = 0,y = 50)
     Txt = Label(root, text="This is a label", bg=_from_rgb((randint(0, 255), randint(0, 255), randint(0, 255))))
-    Txt.grid(row=1, column=1, columnspan=100, sticky=E+W+N+S)
+    Txt.place( x = 80,y = 55)
 
 
 
 #result = dump(root)
 Butt = Button(root, text="Add", command = dump)
 #Butt.bind('<Button-1>', dump(root))
-Butt.grid(row=0, column=0, sticky=E+W)
+Butt.place( x = 0,y = 0)
 Exit = Button(root, text="Exit", command=root.quit)
-Exit.grid(row=0, column=1, sticky=E+W)
+Exit.place( x = 50,y = 0)
 
 
 TKroot.mainloop()

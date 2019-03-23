@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*-
 '''
 Пример для первой лекции про TkInter
-
 Закрытие окошка в постинтерактивном режиме
 '''
 
 
 from Tkinter import *
 from random import randint
+
+
+import random
 TKroot = Tk()
 TKroot.title("Hello")
 
@@ -22,7 +24,7 @@ root.rowconfigure(1, weight=1)
 
 
 
-colors = ["red", "green", "blue"]
+colors = ["red", "white", "orange","peach puff","green2","LightPink2","salmon"]
 
 def _from_rgb(rgb):
     """translates an rgb tuple of int to a tkinter friendly color code
@@ -31,8 +33,8 @@ def _from_rgb(rgb):
 
 
 def random_color():
-    Txt = Label(root, text="This is a label", bg=_from_rgb((randint(0, 255), randint(0, 255), randint(0, 255))))
-    Txt.place( x = 80,y = 55)
+    Txt = Label(root, text="This is a label", bg=random.choice(colors))
+    Txt.grid(row=1, column=1, columnspan=100, sticky=E+W+N+S)
 
 
 
@@ -40,18 +42,18 @@ def dump():
     #print("DUMP:",args)
     Butt2 = Button(root, text="New But",command = random_color)
     #Butt2.bind('<Button-2>', dump)
-    Butt2.place( x = 0,y = 50)
-    Txt = Label(root, text="This is a label", bg=_from_rgb((randint(0, 255), randint(0, 255), randint(0, 255))))
-    Txt.place( x = 80,y = 55)
+    Butt2.grid(row=1, column=0, sticky=E+W+S+N)
+    Txt = Label(root, text="This is a label", bg=random.choice(colors))
+    Txt.grid(row=1, column=1, columnspan=100, sticky=E+W+N+S)
 
 
 
 #result = dump(root)
 Butt = Button(root, text="Add", command = dump)
 #Butt.bind('<Button-1>', dump(root))
-Butt.place( x = 0,y = 0)
+Butt.grid(row=0, column=0, sticky=E+W+S+N)
 Exit = Button(root, text="Exit", command=root.quit)
-Exit.place( x = 50,y = 0)
+Exit.grid(row=0, column=1, sticky=E+W+S+N)
 
 
 TKroot.mainloop()

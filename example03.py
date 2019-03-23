@@ -49,9 +49,9 @@ def dump():
 #result = dump(root)
 Butt = Button(root, text="Add", command = dump)
 #Butt.bind('<Button-1>', dump(root))
-Butt.grid(row=0, column=0, sticky=E+W+S+N)
+Butt.grid(row=0, column=0, sticky=E+W)
 Exit = Button(root, text="Exit", command=root.quit)
-Exit.grid(row=0, column=1, sticky=E+W+S+N)
+Exit.grid(row=0, column=1, sticky=E+W)
 
 
 TKroot.mainloop()
